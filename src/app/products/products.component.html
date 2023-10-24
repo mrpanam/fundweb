@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name</th> <th>Price</th> <th>Quantity</th> <th>current Price</th> <th>bought Price</th> <th>Eligible</th> <th>type</th> <th>Date</th> <th>Remove</th> 
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products ">
+    <td>{{product.id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.qty}}</td>
+    <td>{{product.currentPrice}}</td>
+    <td>{{product.boughtPrice}}</td>
+    <td>
+      <button [ngClass]="{'btn-danger': !product.eligible, 'btn-success': product.eligible}" 
+        (click)="changeEligProduct(product)" class="btn">
+  <i [class]="product.eligible?'bi bi-check-circle':'bi bi-file-x'"></i>
+</button>     
+    </td>
+    <td>{{product.type}}</td>
+    <td>{{product.date}}</td>    
+       
+    
+    <td>
+      <button (click)="deleteProduct(product)" class="btn btn-outline-danger">
+        <i class="bi bi-trash"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+

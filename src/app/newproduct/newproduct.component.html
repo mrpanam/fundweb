@@ -1,0 +1,45 @@
+
+  <div class="p-3">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">
+            <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+              
+              <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control" formControlName="name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Quantity</label>
+                <input class="form-control" formControlName="qty">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Bought Price</label>
+                <input class="form-control" formControlName="boughtPrice">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Current Price</label>
+                <input class="form-control" formControlName="currentPrice">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="eligibleCheck" formControlName="eligible">
+                <label class="form-check-label" for="eligibleCheck">Eligible</label>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input type="date" class="form-control" formControlName="date">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Type</label>
+                <select class="form-control" formControlName="type">
+                  <option *ngFor="let type of productTypes" [value]="type">{{type}}</option>
+                </select>
+              </div>
+              <button [disabled]="productForm.invalid" class="btn btn-success">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
