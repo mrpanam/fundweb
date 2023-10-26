@@ -179,7 +179,16 @@
       "eligible": true,
       "date": "22/02/2023",
       "type": "equity"
+    },
+    {
+      "name": "Arcellor",
+      "qty": "250",
+      "boughtPrice": "26.3",
+      "currentPrice": "21.6",
+      "eligible": false,
+      "date": "2023-06-01",
+      "type": "equity",
+      "id": 20
     }
-    
   ]
 }

@@ -3,23 +3,23 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 mx-auto">
             <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
               
               <div class="mb-3">
-                <label class="form-label">Name</label>
+                <label class="font-weight-bold h5">Name</label>
                 <input class="form-control" formControlName="name">
               </div>
               <div class="mb-3">
-                <label class="form-label">Quantity</label>
+                <label class="font-weight-bold h5">Quantity</label>
                 <input class="form-control" formControlName="qty">
               </div>
               <div class="mb-3">
-                <label class="form-label">Bought Price</label>
+                <label class="font-weight-bold h5">Bought Price</label>
                 <input class="form-control" formControlName="boughtPrice">
               </div>
               <div class="mb-3">
-                <label class="form-label">Current Price</label>
+                <label class="font-weight-bold h5">Current Price</label>
                 <input class="form-control" formControlName="currentPrice">
               </div>
               <div class="mb-3 form-check">
@@ -27,11 +27,11 @@
                 <label class="form-check-label" for="eligibleCheck">Eligible</label>
               </div>
               <div class="mb-3">
-                <label class="form-label">Date</label>
+                <label class="font-weight-bold h5">Date</label>
                 <input type="date" class="form-control" formControlName="date">
               </div>
               <div class="mb-3">
-                <label class="form-label">Type</label>
+                <label class="font-weight-bold h5">Type</label>
                 <select class="form-control" formControlName="type">
                   <option *ngFor="let type of productTypes" [value]="type">{{type}}</option>
                 </select>

@@ -12,7 +12,8 @@ import {RouterLink, RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule, PaginationControlsComponent } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatProgressBarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,FormsModule, NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
