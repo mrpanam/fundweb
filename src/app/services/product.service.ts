@@ -7,18 +7,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  
-  backendUrl:string ="http://localhost:3000/products/"
+ 
 
-  constructor(public http : HttpClient) { }
+  backendUrl: string = "http://localhost:3000/products/"
 
-  public getProducts():Observable<Product[]>{
+  constructor(public http: HttpClient) { }
+
+  public getProducts(): Observable<Product[]> {
     return this.http.get<Array<Product>>(this.backendUrl)
 
   }
 
-  public changeElig(product:Product):Observable<Product[]>{
-     return this.http.patch<Product[]>(this.backendUrl+product.id, {eligible:!product.eligible})
+  public changeElig(product: Product): Observable<Product[]> {
+    return this.http.patch<Product[]>(this.backendUrl + product.id, { eligible: !product.eligible })
   }
 
   public deleteProduct(product: Product): Observable<Product> {
@@ -26,7 +27,18 @@ export class ProductService {
   }
 
 
-  saveProduct(product: Product):Observable<Product> {
+  saveProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.backendUrl,
       product);
-}}
+  }
+
+  getProductById(productId: number) : Observable<Product>{
+    return this.http.get<Product>(`${this.backendUrl}${productId}`);
+  }
+
+
+  updateProduct(product: Product) : Observable<Product>{
+    return this.http.put<Product>(`${this.backendUrl}${product.id}`,product);
+  }
+
+}

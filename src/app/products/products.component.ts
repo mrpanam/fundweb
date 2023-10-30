@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'Model/product.model';
 import { ProductService } from '../services/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -13,12 +14,12 @@ export class ProductsComponent implements OnInit {
 
   totalValue: number = 0;
   products: Array<Product> = [];
-  searchTerm: string ='';
+  searchTerm: string = '';
   pageSize = 10; // Number of items to display per page
   currentPage = 1; // Current page number
 
 
-  constructor(public prodService: ProductService) {
+  constructor(public prodService: ProductService, public router: Router) {
   }
 
   ngOnInit(): void {
@@ -28,10 +29,13 @@ export class ProductsComponent implements OnInit {
 
   getProducts(): void {
     this.prodService.getProducts().subscribe({
-      next: data => { this.products = data.filter(product => product.name.toLowerCase().includes(this.searchTerm.toLowerCase()))},
+      next: data => { this.products = data.filter(product => product.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      this.calculatePNL(); },
+      
       error: err => { console.log(err) }
     }
     );
+    this.currentPage = 1;
   }
 
 
@@ -67,10 +71,19 @@ export class ProductsComponent implements OnInit {
     return this.totalValue;
   }
 
-
   
+  editProduct(product: Product) {
+    this.router.navigate(['/editproduct', product.id]);
+  }
 
 
+  calculatePNL(): void {
+    this.products.forEach(product => {
+      product.pnl = (product.qty * product.currentPrice) - (product.qty * product.boughtPrice);
+    });
+
+
+  }
 
 
 }

@@ -2,53 +2,23 @@
   "products": [
     {
       "id": 1,
-      "name": "Product1",
-      "qty": 300,
-      "boughtPrice": 70.27,
-      "currentPrice": 72.7,
+      "name": "Engie",
+      "qty": "500",
+      "boughtPrice": "14.2",
+      "currentPrice": "14.922",
       "eligible": true,
-      "date": "15/03/2023",
+      "date": "01/05/2023",
       "type": "equity"
     },
     {
       "id": 3,
-      "name": "Product3",
-      "qty": 400,
-      "boughtPrice": 90.27,
-      "currentPrice": 92.7,
+      "name": "Orange",
+      "qty": "950",
+      "boughtPrice": "10.3578",
+      "currentPrice": "11.01",
       "eligible": true,
       "date": "30/05/2023",
-      "type": "mutual funds"
-    },
-    {
-      "id": 4,
-      "name": "Product4",
-      "qty": 500,
-      "boughtPrice": 60.27,
-      "currentPrice": 62.7,
-      "eligible": false,
-      "date": "07/06/2023",
       "type": "equity"
-    },
-    {
-      "id": 5,
-      "name": "Product5",
-      "qty": 600,
-      "boughtPrice": 70.27,
-      "currentPrice": 72.7,
-      "eligible": true,
-      "date": "14/07/2023",
-      "type": "bonds"
-    },
-    {
-      "id": 6,
-      "name": "Product6",
-      "qty": 700,
-      "boughtPrice": 80.27,
-      "currentPrice": 82.7,
-      "eligible": false,
-      "date": "21/08/2023",
-      "type": "mutual funds"
     },
     {
       "id": 7,
@@ -89,16 +59,6 @@
       "eligible": false,
       "date": "19/03/2023",
       "type": "equity"
-    },
-    {
-      "id": 11,
-      "name": "Product11",
-      "qty": 300,
-      "boughtPrice": 90.27,
-      "currentPrice": 92.7,
-      "eligible": true,
-      "date": "26/04/2023",
-      "type": "bonds"
     },
     {
       "id": 12,
@@ -189,6 +149,16 @@
       "date": "2023-06-01",
       "type": "equity",
       "id": 20
+    },
+    {
+      "name": "Alstom",
+      "qty": "400",
+      "boughtPrice": "24.535",
+      "currentPrice": "11.915",
+      "eligible": false,
+      "date": "2023-08-01",
+      "type": "equity",
+      "id": 21
     }
   ]
 }

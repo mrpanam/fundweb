@@ -13,4 +13,5 @@ export interface Product {
   eligible: boolean;
   date: string;
   type: ProductType;
+  pnl: number;
 }

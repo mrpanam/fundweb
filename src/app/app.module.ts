@@ -14,13 +14,15 @@ import {MatCardModule} from "@angular/material/card";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule, PaginationControlsComponent } from 'ngx-pagination';
+import { EditproductComponent } from './editproduct/editproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductsComponent,
-    NewproductComponent
+    NewproductComponent,
+    EditproductComponent
     
     
   ],
