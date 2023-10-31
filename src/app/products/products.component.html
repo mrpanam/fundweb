@@ -1,5 +1,5 @@
 <div class="search-container">
-<input type="text" [(ngModel)]="searchTerm" (ngModelChange)="getProducts()" placeholder="Search by name">
+<input type="text" [(ngModel)]="appStateService.appState.searchTerm" (ngModelChange)="getProducts()" placeholder="Search by name">
 
 </div>
 <table class="table"> 
@@ -11,7 +11,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let product of products 
-  | paginate : { itemsPerPage: 10, currentPage: currentPage } ">  
+  | paginate : { itemsPerPage: appStateService.appState.pageSize, currentPage: appStateService.appState.currentPage } ">  
     <td>{{product.id}}</td>
     <td>{{product.name}}</td>
     <td>{{product.qty}}</td>
@@ -51,7 +51,7 @@
 </table>
 
 <div class="pagination">
-  <pagination-controls (pageChange)="currentPage = $event" ></pagination-controls>
+  <pagination-controls (pageChange)="appStateService.appState.currentPage = $event" ></pagination-controls>
 </div>
 
 

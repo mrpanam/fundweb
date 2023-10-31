@@ -4,6 +4,7 @@ import { Product } from 'Model/product.model';
 import { ProductService } from '../services/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-products',
@@ -12,14 +13,14 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  totalValue: number = 0;
+  //totalValue: number = 0;
   products: Array<Product> = [];
-  searchTerm: string = '';
-  pageSize = 10; // Number of items to display per page
-  currentPage = 1; // Current page number
+  //searchTerm: string = '';
+  //pageSize = 10; // Number of items to display per page
+  //currentPage = 1; // Current page number
 
 
-  constructor(public prodService: ProductService, public router: Router) {
+  constructor(public prodService: ProductService, public router: Router, public appStateService : AppStateService) {
   }
 
   ngOnInit(): void {
@@ -29,13 +30,13 @@ export class ProductsComponent implements OnInit {
 
   getProducts(): void {
     this.prodService.getProducts().subscribe({
-      next: data => { this.products = data.filter(product => product.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      next: data => { this.products = data.filter(product => product.name.toLowerCase().includes(this.appStateService.appState.searchTerm.toLowerCase()));
       this.calculatePNL(); },
       
       error: err => { console.log(err) }
     }
     );
-    this.currentPage = 1;
+    this.appStateService.appState.currentPage = 1;
   }
 
 
@@ -67,8 +68,8 @@ export class ProductsComponent implements OnInit {
   }
 
   calculatePortfolioValue() {
-    this.totalValue = this.products.reduce((sum, product) => sum + (product.qty * product.currentPrice), 0);
-    return this.totalValue;
+    this.appStateService.appState.totalValue = this.products.reduce((sum, product) => sum + (product.qty * product.currentPrice), 0);
+    return this.appStateService.appState.totalValue ;
   }
 
   
