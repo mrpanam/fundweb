@@ -14,7 +14,8 @@ export class AppStateService {
     products: Array<Product>,
     searchTerm: '',
     pageSize :10,// Number of items to display per page
-    currentPage : 1 // Current page number
+    currentPage : 1 ,// Current page number
+    totalPnl:0
 
   }
 

@@ -21,16 +21,6 @@
       "type": "equity"
     },
     {
-      "id": 7,
-      "name": "Product7",
-      "qty": 800,
-      "boughtPrice": 90.27,
-      "currentPrice": 92.7,
-      "eligible": true,
-      "date": "28/09/2023",
-      "type": "equity"
-    },
-    {
       "id": 8,
       "name": "Product8",
       "qty": 900,
@@ -46,7 +36,7 @@
       "qty": 100,
       "boughtPrice": 70.27,
       "currentPrice": 72.7,
-      "eligible": false,
+      "eligible": true,
       "date": "12/02/2023",
       "type": "mutual funds"
     },
@@ -58,7 +48,7 @@
       "currentPrice": 82.7,
       "eligible": false,
       "date": "19/03/2023",
-      "type": "equity"
+      "type": "bonds"
     },
     {
       "id": 12,

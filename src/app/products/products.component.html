@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let product of products 
+  <tr *ngFor="let product of appStateService.appState.products 
   | paginate : { itemsPerPage: appStateService.appState.pageSize, currentPage: appStateService.appState.currentPage } ">  
     <td>{{product.id}}</td>
     <td>{{product.name}}</td>
@@ -43,9 +43,10 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="5">Total Value</td>
-      <td>{{this.calculatePortfolioValue() | number:'1.2-2'}}</td>
-    </tr>
+      <td colspan="5">Total</td>
+      <td>{{this.calculatePortfolioValue() | number:'1.2-2'}}</td>      
+      <td [ngClass]="{'positive': appStateService.appState.totalPnl > 0, 'negative': appStateService.appState.totalPnl < 0}">{{this.appStateService.appState.totalPnl| number:'1.2-2'}}</td>
+    </tr>   
   </tfoot>
 
 </table>

@@ -14,7 +14,7 @@ import { AppStateService } from '../services/app-state.service';
 export class ProductsComponent implements OnInit {
 
   //totalValue: number = 0;
-  products: Array<Product> = [];
+  //products: Array<Product> = [];
   //searchTerm: string = '';
   //pageSize = 10; // Number of items to display per page
   //currentPage = 1; // Current page number
@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit {
 
   getProducts(): void {
     this.prodService.getProducts().subscribe({
-      next: data => { this.products = data.filter(product => product.name.toLowerCase().includes(this.appStateService.appState.searchTerm.toLowerCase()));
+      next: data => { this.appStateService.appState.products = data.filter(product => product.name.toLowerCase().includes(this.appStateService.appState.searchTerm.toLowerCase()));
       this.calculatePNL(); },
       
       error: err => { console.log(err) }
@@ -60,7 +60,7 @@ export class ProductsComponent implements OnInit {
       this.prodService.deleteProduct(product).subscribe({
         next: value => {
           //this.getProducts();
-          this.products = this.products.filter(p => p.id != product.id);
+          this.appStateService.appState.products = this.appStateService.appState.products.filter((p: Product) => p.id != product.id);
 
         }
       })
@@ -68,7 +68,7 @@ export class ProductsComponent implements OnInit {
   }
 
   calculatePortfolioValue() {
-    this.appStateService.appState.totalValue = this.products.reduce((sum, product) => sum + (product.qty * product.currentPrice), 0);
+    this.appStateService.appState.totalValue = this.appStateService.appState.products.reduce((sum :number, product:Product) => sum + (product.qty * product.currentPrice), 0);
     return this.appStateService.appState.totalValue ;
   }
 
@@ -78,11 +78,14 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  calculatePNL(): void {
-    this.products.forEach(product => {
+  calculatePNL(): number {
+    
+    this.appStateService.appState.products.forEach((product: Product) => {
       product.pnl = (product.qty * product.currentPrice) - (product.qty * product.boughtPrice);
+      this.appStateService.appState.totalPnl+=product.pnl;
+      
     });
-
+    return this.appStateService.appState.totalPnl;
 
   }
 
