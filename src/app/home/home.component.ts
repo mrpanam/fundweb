@@ -12,6 +12,6 @@ longText : string = "This is the Home card, let's build a nice dashboard";
 constructor(public appStateservice:AppStateService){}
 
 
-calculateTotalPnl(){}
+
 
 }

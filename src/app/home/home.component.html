@@ -1,34 +1,24 @@
 <div class="card-container">
-
   <mat-card>
-    <mat-card-content>Simple card</mat-card-content>
-    <ul class="nav justify-content-center  ">
-        <li class="nav-item">
-            <label class="label label-success">total market value: {{appStateservice.appState.totalValue}}</label>
-        </li>
-        <li class="nav-item">
-            <label class="label label-success">total market value: {{appStateservice.appState.totalValue}}</label>
-        </li>
-        <li class="nav-item">
-            <label class="label label-success">total market value: {{appStateservice.appState.totalValue}}</label>
-        </li>        
-    </ul>
+    <h4 class="">Dashboard</h4>
     
+    <div class="label-container">
+      <div class="border border-info bg-success  p-1 mb-1">total market value: {{appStateservice.appState.totalValue}}</div>
+      <div class="border border-info bg-warning  p-1 mb-1">total pnl: {{appStateservice.appState.totalPnl}}</div>
+      <div class="border border-info bg-primary  p-1 mb-1">Number of Funds: {{appStateservice.appState.numberFunds}}</div>
+    </div>
    
   </mat-card>
-
-<mat-card class="example-card">
-  <mat-card-header>
-
-    <mat-card-title>Home Component</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <p>This card has divider and indeterminate progress as footer</p>
-    <img  src="assets/images/arch2.jpg" >
-    <p>{{ longText }}</p>
-    <mat-divider></mat-divider>
-  </mat-card-content>
-</mat-card>
+  
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Home Component</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This card has divider and indeterminate progress as footer</p>
+      <img src="assets/images/arch2.jpg">
+      <p>{{ longText }}</p>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+  </mat-card>
 </div>
-
-

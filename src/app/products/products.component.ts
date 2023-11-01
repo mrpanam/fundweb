@@ -83,6 +83,8 @@ export class ProductsComponent implements OnInit {
     this.appStateService.appState.products.forEach((product: Product) => {
       product.pnl = (product.qty * product.currentPrice) - (product.qty * product.boughtPrice);
       this.appStateService.appState.totalPnl+=product.pnl;
+      this.appStateService.appState.numberFunds+=1;
+
       
     });
     return this.appStateService.appState.totalPnl;

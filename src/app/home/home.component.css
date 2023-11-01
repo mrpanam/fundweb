@@ -6,4 +6,12 @@
 .card-container {
   display: flex;
   justify-content: center;
+  
 }
+.label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+

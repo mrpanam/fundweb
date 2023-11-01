@@ -15,7 +15,8 @@ export class AppStateService {
     searchTerm: '',
     pageSize :10,// Number of items to display per page
     currentPage : 1 ,// Current page number
-    totalPnl:0
+    totalPnl:0,
+    numberFunds:0
 
   }
 
