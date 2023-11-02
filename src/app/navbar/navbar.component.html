@@ -5,6 +5,12 @@
       <button routerLink="home" type="button" class="btn custom-button" routerLinkActive="class1">Home</button>
       <button routerLink="products" type="button" class="btn custom-button" routerLinkActive="class1">Products</button>
       <button routerLink="newproduct" type="button" class="btn custom-button" routerLinkActive="class1">New Product</button>
+      
+      <div *ngIf="appStateService.appState.loadingStatus =='Loading'" class="spinner-border text-danger " role="status">
+        
+      </div>
+      
+
     </div>
   </section>
   <mat-divider ></mat-divider>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   title = 'Fundweb';
+  constructor(public appStateService: AppStateService){}
 
 }

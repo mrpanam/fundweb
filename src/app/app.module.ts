@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule, PaginationControlsComponent } from 'ngx-pagination';
 import { EditproductComponent } from './editproduct/editproduct.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AppErrorComponent } from './app-error/app-error.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ProductsComponent,
     NewproductComponent,
     EditproductComponent,
-    NavbarComponent
+    NavbarComponent,
+    AppErrorComponent
     
     
   ],
