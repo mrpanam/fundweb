@@ -29,15 +29,13 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.appStateService.setProductState({loadingStatus:'Loading'});
+    //this.appStateService.setProductState({loadingStatus:'Loading'});
     this.prodService.getProducts().subscribe({
       next: data => {
         let filteredProducts=data.filter(product => product.name.toLowerCase().
           includes(this.appStateService.appState.searchTerm.toLowerCase()));
           this.appStateService.appState.products = filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-          this.appStateService.setProductState({
-            loadingStatus:'Loaded'
-          })
+          //this.appStateService.setProductState({loadingStatus:'Loaded'})
       },
 
       error: err => { this.appStateService.setProductState({
