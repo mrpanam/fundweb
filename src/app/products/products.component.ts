@@ -40,10 +40,8 @@ export class ProductsComponent implements OnInit {
           })
       },
 
-      error: err => { console.log(err);
-        this.appStateService.setProductState({
-          loadingStatus:'Error'
-        }) }
+      error: err => { this.appStateService.setProductState({
+          loadingStatus:'Error', errorMessage :err}) }
     }
     );
     this.appStateService.appState.currentPage = 1;

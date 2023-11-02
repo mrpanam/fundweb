@@ -19,7 +19,7 @@
     <td>{{product.currentPrice}}</td>
     <td>{{product.boughtPrice}}</td>
     <td>{{product.currentPrice*product.qty}}</td>
-    <td [ngClass]="{'positive': product.pnl > 0, 'negative': product.pnl < 0}">{{ product.pnl }}</td>
+    <td [ngClass]="{'positive': product.pnl > 0, 'negative': product.pnl < 0}">{{ product.pnl | number:'1.2-2'}}</td>
     <td>
       <button [ngClass]="{'btn-warning': !product.eligible, 'btn-primary': product.eligible}" 
         (click)="changeEligProduct(product)" class="btn">

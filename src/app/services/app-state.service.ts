@@ -17,7 +17,8 @@ export class AppStateService {
     currentPage : 1 ,// Current page number
     totalPnl:0,
     numberFunds:0,
-    loadingStatus:'Error'
+    loadingStatus:'Error',
+    errorMessage:''
 
   }
 
