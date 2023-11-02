@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   //currentPage = 1; // Current page number
 
 
-  constructor(public prodService: ProductService, public router: Router, public appStateService : AppStateService) {
+  constructor(public prodService: ProductService, public router: Router, public appStateService: AppStateService) {
   }
 
   ngOnInit(): void {
@@ -30,9 +30,11 @@ export class ProductsComponent implements OnInit {
 
   getProducts(): void {
     this.prodService.getProducts().subscribe({
-      next: data => { this.appStateService.appState.products = data.filter(product => product.name.toLowerCase().includes(this.appStateService.appState.searchTerm.toLowerCase()));
-      this.calculatePNL(); },
-      
+      next: data => {
+        this.appStateService.appState.products = data.filter(product => product.name.toLowerCase().
+          includes(this.appStateService.appState.searchTerm.toLowerCase()));
+      },
+
       error: err => { console.log(err) }
     }
     );
@@ -59,8 +61,8 @@ export class ProductsComponent implements OnInit {
 
       this.prodService.deleteProduct(product).subscribe({
         next: value => {
-          //this.getProducts();
-          this.appStateService.appState.products = this.appStateService.appState.products.filter((p: Product) => p.id != product.id);
+          this.getProducts();
+          //this.appStateService.appState.products = this.appStateService.appState.products.filter((p: Product) => p.id != product.id);
 
         }
       })
@@ -68,24 +70,25 @@ export class ProductsComponent implements OnInit {
   }
 
   calculatePortfolioValue() {
-    this.appStateService.appState.totalValue = this.appStateService.appState.products.reduce((sum :number, product:Product) => sum + (product.qty * product.currentPrice), 0);
-    return this.appStateService.appState.totalValue ;
+    this.appStateService.appState.totalValue = this.appStateService.appState.products.reduce((sum: number, product: Product) => sum + (product.qty * product.currentPrice), 0);
+    return this.appStateService.appState.totalValue;
   }
 
-  
+
   editProduct(product: Product) {
     this.router.navigate(['/editproduct', product.id]);
   }
 
 
   calculatePNL(): number {
-    
+    this.appStateService.appState.totalPnl = 0;
+    this.appStateService.appState.numberFunds = 0;
+
     this.appStateService.appState.products.forEach((product: Product) => {
       product.pnl = (product.qty * product.currentPrice) - (product.qty * product.boughtPrice);
-      this.appStateService.appState.totalPnl+=product.pnl;
-      this.appStateService.appState.numberFunds+=1;
+      this.appStateService.appState.totalPnl += product.pnl;
+      this.appStateService.appState.numberFunds += 1;
 
-      
     });
     return this.appStateService.appState.totalPnl;
 
