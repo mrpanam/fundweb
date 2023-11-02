@@ -1,12 +1,12 @@
-<div class="search-container">
-<input type="text" [(ngModel)]="appStateService.appState.searchTerm" (ngModelChange)="getProducts()" placeholder="Search by name">
-
-</div>
 <app-home></app-home>
+
+  <input type="text" [(ngModel)]="appStateService.appState.searchTerm" (ngModelChange)="getProducts()" placeholder="Search by name">
+      
 <table class="table"> 
+  
   <thead>
   <tr>
-    <th>Name</th> <th>Price</th> <th>Quantity</th> <th>current Price</th> <th>bought Price</th>  <th>Market Value</th>
+    <th>ID</th> <th>Name</th> <th>Quantity</th> <th>current Price</th> <th>bought Price</th>  <th>Market Value</th>
     <th>Pnl</th> <th>Eligible Status</th> <th>type</th> <th>Date</th> <th>Remove</th> <th>Edit data</th>
   </tr>
   </thead>

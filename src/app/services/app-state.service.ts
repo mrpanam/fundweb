@@ -16,12 +16,15 @@ export class AppStateService {
     pageSize :10,// Number of items to display per page
     currentPage : 1 ,// Current page number
     totalPnl:0,
-    numberFunds:0
+    numberFunds:0,
+    loadingStatus:'Error'
 
   }
 
   constructor() { }
-
-
+  
+  public setProductState(state:any){
+    this.appState={...this.appState, ...state}
+  }
 
 }

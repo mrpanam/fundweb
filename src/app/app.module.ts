@@ -15,6 +15,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule, PaginationControlsComponent } from 'ngx-pagination';
 import { EditproductComponent } from './editproduct/editproduct.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditproductComponent } from './editproduct/editproduct.component';
     HomeComponent,
     ProductsComponent,
     NewproductComponent,
-    EditproductComponent
+    EditproductComponent,
+    NavbarComponent
     
     
   ],

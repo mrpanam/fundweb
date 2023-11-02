@@ -1,0 +1,16 @@
+button{
+    margin-right: 5px;
+  }
+  
+  section{
+    text-align: center;
+    background-image: url("src/assets/images/14771.jpg");
+  }
+  
+  .custom-button{
+    background-color: orangered;
+  }
+  
+  .class1{
+    background-color: lightsalmon;
+  }

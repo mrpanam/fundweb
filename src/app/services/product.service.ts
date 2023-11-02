@@ -38,7 +38,7 @@ export class ProductService {
 
 
   updateProduct(product: Product) : Observable<Product>{
-    return this.http.put<Product>(`${this.backendUrl}${product.id}`,product);
+    return this.http.patch<Product>(`${this.backendUrl}${product.id}`,product);
   }
 
 }

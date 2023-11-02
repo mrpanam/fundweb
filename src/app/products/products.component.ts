@@ -29,13 +29,21 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
+    this.appStateService.setProductState({loadingStatus:'Loading'});
     this.prodService.getProducts().subscribe({
       next: data => {
-        this.appStateService.appState.products = data.filter(product => product.name.toLowerCase().
+        let filteredProducts=data.filter(product => product.name.toLowerCase().
           includes(this.appStateService.appState.searchTerm.toLowerCase()));
+          this.appStateService.appState.products = filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+          this.appStateService.setProductState({
+            loadingStatus:'Loaded'
+          })
       },
 
-      error: err => { console.log(err) }
+      error: err => { console.log(err);
+        this.appStateService.setProductState({
+          loadingStatus:'Error'
+        }) }
     }
     );
     this.appStateService.appState.currentPage = 1;
@@ -70,7 +78,10 @@ export class ProductsComponent implements OnInit {
   }
 
   calculatePortfolioValue() {
-    this.appStateService.appState.totalValue = this.appStateService.appState.products.reduce((sum: number, product: Product) => sum + (product.qty * product.currentPrice), 0);
+    let totalValue=this.appStateService.appState.products.reduce((sum: number, product: Product) =>
+     sum + (product.qty * product.currentPrice), 0);
+     this.appStateService.setProductState({totalValue:totalValue})
+
     return this.appStateService.appState.totalValue;
   }
 

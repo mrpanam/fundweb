@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product, ProductType } from 'Model/product.model';
 import { ProductService } from '../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newproduct',
@@ -13,7 +14,7 @@ export class NewproductComponent implements OnInit{
   public productForm!:FormGroup;
   productTypes = Object.values(ProductType);
 
-  constructor(private fb: FormBuilder, private productService:ProductService) {
+  constructor(private fb: FormBuilder, private productService:ProductService, public router:Router) {
   }
   ngOnInit() {
     this.productForm=this.fb.group({
@@ -36,6 +37,7 @@ export class NewproductComponent implements OnInit{
         console.log(err);
       }
     });
+    this.router.navigate(['/products']);
   }
 
 }

@@ -24,21 +24,41 @@
       "name": "Arcellor",
       "qty": "250",
       "boughtPrice": "26.3",
-      "currentPrice": "21.6",
+      "currentPrice": "20.725",
       "eligible": false,
       "date": "2023-06-01",
       "type": "equity",
       "id": 20
     },
     {
+      "id": 21,
       "name": "Alstom",
       "qty": "400",
       "boughtPrice": "24.535",
-      "currentPrice": "11.915",
+      "currentPrice": "12.75",
       "eligible": false,
       "date": "2023-08-01",
-      "type": "equity",
-      "id": 21
+      "type": "equity"
+    },
+    {
+      "name": "AXA",
+      "qty": "300",
+      "boughtPrice": "26.20",
+      "currentPrice": "28.285",
+      "eligible": true,
+      "date": "2023-05-02",
+      "type": "mutual funds",
+      "id": 22
+    },
+    {
+      "name": "CASA4.10%17APR2024",
+      "qty": "15000",
+      "boughtPrice": "1.069933",
+      "currentPrice": "1.0629",
+      "eligible": true,
+      "date": "2023-07-03",
+      "type": "bonds",
+      "id": 23
     }
   ]
 }
